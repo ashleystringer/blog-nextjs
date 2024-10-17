@@ -54,19 +54,23 @@ function PostDetails({ postId }: { postId: string}){
 
     return (
         <>
+            <button onClick={() => router.back()} className='btn'>Back</button>
+            <br/>
             <h1 className="page-title">{title ? title : <Skeleton short/>}</h1>
+            <div>{post ? Math.ceil(post.content.split(" ").length / 250) + " minute read": "?"}
+            </div>
+            <br/>
             <span className="page-subtitle">
                 By: {" "}
                 <Suspense fallback={<Skeleton short inline/>}>
                 </Suspense>
             </span>
-            <div>Post Body</div>
             <div>
                 Date Published: {
                     post ? new Date(post.datePublished).toLocaleDateString() : <Skeleton short />
                 }
             </div>
-            <button onClick={() => router.back()} className='btn'>Back</button>
+            <div>Post Body</div>
         </>
     );
 }

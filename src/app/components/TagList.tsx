@@ -6,12 +6,14 @@ export default function TagList({
   posts,
   tags,
   selectedTags,
-  setSelectedTags
+  setSelectedTags,
+  setFilterMode
 } : {
   posts: any,
   tags: any
   selectedTags: any,
-  setSelectedTags: any
+  setSelectedTags: any,
+  setFilterMode: any
 }) {
 
   
@@ -36,6 +38,7 @@ export default function TagList({
   function toggleTag(tag){
 
     console.log(tag.target.name);
+    setFilterMode('tag-mode');
     
     if(selectedTags.includes(tag.target.name)){
       removeTags(tag.target.name);
