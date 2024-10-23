@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./styles.css";
+import Footer from "./components/Footer";  
 
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
         <div className="container">
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   );

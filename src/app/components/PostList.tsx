@@ -1,27 +1,27 @@
 'use client';
 
+import { Posts } from "../ts/posts";
 import { useState, useEffect } from "react";
 import { PostCard } from "./PostCard";
-import PostSorter from "./PostSorter";
 import TagList from "./TagList";
 import SearchBar from "../components/SearchBar";
-import { getPosts } from "../api/posts";
 
 
 export default function PostList({
     posts
 } : {
-    posts: any
+    posts: Posts
 }) {
+
+    console.log(posts.articles);
+
+    const articles = posts.articles;
 
 
     const [filterMode, setFilterMode] = useState('tag-mode');
-    const [postsByTags, setPostByTags] = useState(posts);  
-    const [tags, setTags] = useState(Array.from(new Set(posts.articles.map((post) => post.tags).flat()))); 
-    const [tagCount, setTagCount] = useState({}); 
-    const [selectedTags, setSelectedTags] = useState([]);
+    const [tags] = useState(Array.from(new Set(posts.articles.map((post) => post.tags).flat()))); 
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
-    const articles = posts.articles;
 
 
     useEffect(() => {
@@ -29,29 +29,7 @@ export default function PostList({
         console.log(filterMode);
     }, [filterMode]);
 
-    /*function matchTags(currentPost){
-        
-        console.log(currentPost);
-
-        //currentPost = currentPost.tags;
-        const tags = currentPost.tags;
-        const title = currentPost.title;
-
-        console.log(tags);
-
-        if(filterMode === "tag-mode"){
-            const tags = currentPost.tags;
-            console.log(currentPost);
-            return selectedTags.every((tag) => tags.includes(tag));
-        }else if(filterMode === "search-mode" && searchQuery !== ''){
-            //return title.toLowerCase().includes(searchQuery.toLowerCase());
-            console.log(currentPost);
-        }
-        
-        return selectedTags.every((tag) => tags.includes(tag));
-    }*/
-
-    function matchToPost(title, tags){
+    function matchToPost(title: string, tags: string[]){
         if(filterMode === "tag-mode"){
             return selectedTags.every((tag) => tags.includes(tag));
         }else if(filterMode === "search-mode" && searchQuery !== ''){
@@ -68,7 +46,7 @@ export default function PostList({
 
   return (
     <>
-        <SearchBar posts={posts} setFilterMode={setFilterMode} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        <SearchBar setFilterMode={setFilterMode} searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
 
         <br/>
 

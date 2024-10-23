@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function SearchBar({
-  posts,
   setFilterMode,
   searchQuery,
   setSearchQuery
 } : {
-  posts: any,
-  setFilterMode: any
+  setFilterMode: React.Dispatch<React.SetStateAction<string>>
   searchQuery: string,
-  setSearchQuery: any
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>
 }) {
 
 
   
-  function onChange(e){
+  function onChange(e: React.ChangeEvent<HTMLInputElement>){
     //find a way to search through posts by title using searchQuery and input
     setFilterMode('search-mode')
     setSearchQuery(e.target.value);
@@ -37,14 +35,7 @@ export default function SearchBar({
     >
       <img src="../../public/magnifying-glass-solid.svg" alt=""/>
       <input type="text" placeholder='Seach Bar'
-        style={{
-          padding: '0.5rem',
-          height: '100%',
-          width: '100%',
-          borderRadius: '10px',
-          border: 'none',
-          outline: 'none'
-        }}
+        className='search-bar'
         onChange={(e) => onChange(e)}
         onFocus={() => setFilterMode('search-mode')}
         value={searchQuery}

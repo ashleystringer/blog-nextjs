@@ -1,16 +1,13 @@
-import { useState } from "react";
-import { PostCard } from "../components/PostCard";
-import PostSorter from "../components/PostSorter";
+import { Posts } from "../ts/posts";
 import PostList from "../components/PostList";
 import { getPosts } from "../api/posts";
 
 export default async function PostsPage(){
 
-    const posts = await getPosts();
-    const articles = posts.articles;
+    const posts: Posts = await getPosts();
 
-    console.log(typeof articles);
-    console.log(articles);
+    console.log("posts");
+    console.log(posts);
 
     /*
         - Sort by date

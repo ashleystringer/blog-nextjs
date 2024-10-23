@@ -1,6 +1,7 @@
 'use client'
 
-import React, { useState } from 'react';
+import { Posts } from "../ts/posts";
+import React from 'react';
 
 export default function TagList({
   posts,
@@ -9,20 +10,20 @@ export default function TagList({
   setSelectedTags,
   setFilterMode
 } : {
-  posts: any,
-  tags: any
-  selectedTags: any,
-  setSelectedTags: any,
-  setFilterMode: any
+  posts: Posts,
+  tags: string[]
+  selectedTags: string[],
+  setSelectedTags:  React.Dispatch<React.SetStateAction<string[]>>,
+  setFilterMode: React.Dispatch<React.SetStateAction<string>>
 }) {
 
   
     const tagsByCount = () => {
         const tagsArray = posts.articles.map((post) => post.tags).flat();
         
-        let tagCount = {};
+        const tagCount: { [key: string]: number } = {};
     
-        tagsArray.forEach((tag) => {
+        tagsArray.forEach((tag: string) => {
           if(tagCount[tag]){
             tagCount[tag] = tagCount[tag] + 1;
           }else{
@@ -35,25 +36,27 @@ export default function TagList({
   
 
 
-  function toggleTag(tag){
+  function toggleTag(tag: React.MouseEvent<HTMLButtonElement>){
 
-    console.log(tag.target.name);
+    const target = tag.target as HTMLButtonElement;
+
+    console.log(target.name);
     setFilterMode('tag-mode');
     
-    if(selectedTags.includes(tag.target.name)){
-      removeTags(tag.target.name);
+    if(selectedTags.includes(target.name)){
+      removeTags(target.name);
     }else{
-      addTags(tag.target.name);
+      addTags(target.name);
     }
   }
   
-  function removeTags(tag){
+  function removeTags(tag: string){
       setSelectedTags((tags) => {
         return tags.filter((t) => t !== tag);
       });
   }
 
-  function addTags(tag){
+  function addTags(tag: string){
     if(!selectedTags.includes(tag)){
       setSelectedTags((tags) => {
         return [...tags, tag];

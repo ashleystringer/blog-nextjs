@@ -2,11 +2,9 @@
 import React from 'react'
 
 export default function PostSorter({
-    postDisplayMode,
     setPostDisplayMode
 } : {
-    postDisplayMode: string;
-    setPostDisplayMode: any;
+    setPostDisplayMode:  React.Dispatch<React.SetStateAction<string>>;
 }) {
 
   /*
@@ -17,8 +15,8 @@ export default function PostSorter({
 
   return (
     <div>Post Sorter
-        <button className={``}  onClick={(e) => { setPostDisplayMode("dateMode") }}>Sort by Date</button>
-        <button className={``} onClick={(e) => { setPostDisplayMode("tagMode") }}>Sort by Tags</button>
+        <button className={``}  onClick={() => { setPostDisplayMode("dateMode") }}>Sort by Date</button>
+        <button className={``} onClick={() => { setPostDisplayMode("tagMode") }}>Sort by Tags</button>
     </div>
   )
 }
