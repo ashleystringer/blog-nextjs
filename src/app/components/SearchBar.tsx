@@ -26,9 +26,9 @@ export default function SearchBar({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '.1rem',
+        /*padding: '.1rem',
         backgroundColor: 'lightgray',
-        borderRadius: '10px',
+        borderRadius: '10px',*/
         marginBottom: '1rem',
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       }}

@@ -11,6 +11,7 @@ type Post = {
     datePublished: string;
     content: string;
     tags: string[];
+    recStatus: boolean;
 };
 
 

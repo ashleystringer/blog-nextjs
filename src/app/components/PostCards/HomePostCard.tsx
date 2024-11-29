@@ -1,32 +1,45 @@
 import React from 'react'
 import Link from "next/link";
-import { Skeleton, SkeletonButton } from './Skeleton';
+import { Skeleton, SkeletonButton } from '../Skeleton';
 
-export function PostCard({
+export function HomePostCard({
     id,
     title,
-    content
+    content,
+    datePublished,
+    tags
 }: {
     id: number;
     title: string;
     content: string;
+    datePublished: string;
+    tags: string[];
 }) {
+
   return (
     <div className='card'>
-        <div className="card-header">{title}</div>
+        <Link className="card-header home-card" href={`/posts/${id}`}>
+            {title}
+        </Link>
         <div className="card-body">
             <div className="card-preview-text">{content}</div>
         </div>
         <div className="card-footer">
-            <Link className="btn" href={`/posts/${id}`}>
-                View
-            </Link>
+        {
+            tags.map((tag, index) => {
+              return (
+                <button key={index} className="tagBtn">
+                  {tag}
+                </button>
+              )
+            })
+          }
         </div>
     </div>
   )
 }
 
-export function SkeletonPostCard(){
+export function SkeletonHomePostCard(){
     return (
         <div className="card">
             <div className='card-header'>

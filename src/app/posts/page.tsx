@@ -1,5 +1,5 @@
 import { Posts } from "../ts/posts";
-import PostList from "../components/PostList";
+import PostList from "../components/PostLists/PostList";
 import { getPosts } from "../api/posts";
 
 export default async function PostsPage(){

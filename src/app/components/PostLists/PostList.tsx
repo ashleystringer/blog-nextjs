@@ -1,10 +1,10 @@
 'use client';
 
-import { Posts } from "../ts/posts";
+import { Posts } from "../../ts/posts";
 import { useState, useEffect } from "react";
-import { PostCard } from "./PostCard";
-import TagList from "./TagList";
-import SearchBar from "../components/SearchBar";
+import { PostCard } from "../PostCards/PostCard";
+import TagList from "../TagList";
+import SearchBar from "../SearchBar";
 
 
 export default function PostList({
@@ -22,12 +22,6 @@ export default function PostList({
     const [tags] = useState(Array.from(new Set(posts.articles.map((post) => post.tags).flat()))); 
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
-
-
-    useEffect(() => {
-        console.log("filterMode");
-        console.log(filterMode);
-    }, [filterMode]);
 
     function matchToPost(title: string, tags: string[]){
         if(filterMode === "tag-mode"){

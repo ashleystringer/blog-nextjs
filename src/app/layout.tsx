@@ -17,29 +17,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="top-nav">
-          <div className="nav-text-large">
-              <Link href="/">My App</Link>
+        <div className="page-container">
+          <div className="content-wrap">
+            <nav className="top-nav">
+              <div className="nav-text-large">
+                  <Link href="/">My App</Link>
+                </div>
+              <ul className="nav-list">
+                <li>
+                  <Link href="/">Home</Link>
+                </li>
+                <li>
+                  <Link href="/about">About</Link>
+                </li>
+                <li>
+                  <Link href="/posts">Posts</Link>            
+                </li>
+                <li>
+                  <Link href="/contact">Contact</Link>            
+                </li>
+              </ul>
+            </nav>
+            <div className="container">
+              {children}
             </div>
-          <ul className="nav-list">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
-            <li>
-              <Link href="/posts">Posts</Link>            
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>            
-            </li>
-          </ul>
-        </nav>
-        <div className="container">
-          {children}
+              <br/>
+              <br/>
+              <Footer />
+            </div>
         </div>
-        <Footer />
       </body>
     </html>
   );

@@ -1,4 +1,6 @@
-/*import { createContext, useContext } from 'react';
+'use client';
+
+import { createContext, useContext } from 'react';
 
 const PostContext = createContext(null);
 
@@ -8,9 +10,15 @@ export const usePostContext = () => {
 
 export const PostProvider = ({ children }) => {
 
+    /*
+    function getAllPosts(){
+        //get all posts
+    }
+    */
+
     return (
         <PostContext.Provider>
             {children}
         </PostContext.Provider>
     );
-};*/
+};
