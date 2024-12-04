@@ -18,8 +18,13 @@ export function HomePostCard({
 
   return (
     <div className='card'>
-        <Link className="card-header home-card" href={`/posts/${id}`}>
-            {title}
+        <Link className="card-header" href={`/posts/${id}`}>
+            <div className='home-card'>
+                {title}
+            </div>
+            <div className='date-published'>
+                {datePublished}
+            </div>
         </Link>
         <div className="card-body">
             <div className="card-preview-text">{content}</div>

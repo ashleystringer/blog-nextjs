@@ -129,8 +129,15 @@
  
   }
 
-  .home-card:hover{
+  .home-card:hover {
     color: hsl(200, 100%, 35%);
+  }
+
+  .date-published {
+    padding: 0.1rem;
+    font-size: .8rem;
+    font-style: italic;
+    color: rgb(76, 76, 76);
   }
   
   .btn {

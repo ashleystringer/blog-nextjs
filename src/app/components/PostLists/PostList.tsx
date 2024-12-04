@@ -72,6 +72,7 @@ export default function PostList({
                                         id={post.id}
                                         title={post.title}
                                         content={post.content}
+                                        datePublished={post.datePublished}
                                         />
                                     );
                 }) 

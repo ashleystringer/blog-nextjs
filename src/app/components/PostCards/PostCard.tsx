@@ -5,15 +5,24 @@ import { Skeleton, SkeletonButton } from '../Skeleton';
 export function PostCard({
     id,
     title,
-    content
+    content,
+    datePublished
 }: {
     id: number;
     title: string;
     content: string;
+    datePublished: string;
 }) {
   return (
     <div className='card'>
-        <div className="card-header">{title}</div>
+        <div className="card-header">
+                <div>
+                    {title}
+                </div> 
+                <div className='date-published'>
+                {datePublished}
+                </div>
+            </div>
         <div className="card-body">
             <div className="card-preview-text">{content}</div>
         </div>
