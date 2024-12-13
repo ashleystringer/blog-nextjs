@@ -1,4 +1,4 @@
-import Welcome from '../mdx/welcome.mdx'
+import Welcome from "../markdown/welcome.mdx";
  
 export default function Page() {
   return <Welcome />
